@@ -11,12 +11,8 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 #include <limits>
-#include <set>
-#include <map>
 #include <string>
-#include <vector>
 #include <algorithm>
-#include "GraphElements.h"
 #include "BaseGraph.h"
 
 const double BaseGraph::DISCONNECT = (std::numeric_limits<double>::max)();

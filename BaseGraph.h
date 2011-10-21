@@ -13,6 +13,11 @@
 #ifndef __BaseGraph_h
 #define __BaseGraph_h
 
+#include <set>
+#include <vector>
+#include <map>
+#include "GraphElements.h"
+
 class BaseGraph
 {
 public: // members

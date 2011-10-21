@@ -11,9 +11,6 @@
 ///
 ///////////////////////////////////////////////////////////////////////////////
 
-#include <set>
-#include <map>
-#include <vector>
 #include "GraphElements.h"
 #include "Graph.h"
 #include "DijkstraShortestPathAlg.h"

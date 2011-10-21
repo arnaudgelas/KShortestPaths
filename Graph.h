@@ -13,7 +13,13 @@
 #ifndef __Graph_h
 #define __Graph_h
 
+#include <set>
+#include <map>
+#include <vector>
+
 #include "BasePath.h"
+
+class BaseVertex;
 
 class Path : public BasePath
 {

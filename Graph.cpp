@@ -10,10 +10,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 #include <limits>
-#include <set>
-#include <map>
 #include <string>
-#include <vector>
 #include <fstream>
 #include <iostream>
 #include <algorithm>

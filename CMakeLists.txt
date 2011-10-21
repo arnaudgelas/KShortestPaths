@@ -18,7 +18,13 @@ add_executable( kshortestpath
 
 )
 
+add_executable( HeaderTest HeaderTest.cpp )
+
 include( CTest )
+
+add_test( NAME HeaderTest
+  COMMAND HeaderTest
+)
 
 add_test( NAME kshortestpath1
   COMMAND ${KShortestPaths_BINARY_DIR}/kshortestpath
