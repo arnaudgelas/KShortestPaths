@@ -14,7 +14,13 @@
 #ifndef __DijkstraShortestPathAlg_h
 #define __DijkstraShortestPathAlg_h
 
-using namespace std;
+#include <map>
+#include <set>
+
+class Graph;
+class BaseVertex;
+class BasePath;
+template < class T > class WeightLess;
 
 class DijkstraShortestPathAlg
 {

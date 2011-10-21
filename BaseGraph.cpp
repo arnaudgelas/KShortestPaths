@@ -19,23 +19,21 @@
 #include "GraphElements.h"
 #include "BaseGraph.h"
 
-using namespace std;
-
-const double BaseGraph::DISCONNECT = (numeric_limits<double>::max)();
+const double BaseGraph::DISCONNECT = (std::numeric_limits<double>::max)();
 
 void BaseGraph::clear()
 {
   m_nEdgeNum = 0;
   m_nVertexNum = 0;
 
-  for(map<BaseVertex*, set<BaseVertex*>*>::const_iterator pos=m_mpFaninVertices.begin();
+  for(std::map<BaseVertex*, std::set<BaseVertex*>*>::const_iterator pos=m_mpFaninVertices.begin();
     pos!=m_mpFaninVertices.end(); ++pos)
   {
     delete pos->second;
   }
   m_mpFaninVertices.clear();
 
-  for(map<BaseVertex*, set<BaseVertex*>*>::const_iterator pos=m_mpFanoutVertices.begin();
+  for(std::map<BaseVertex*, std::set<BaseVertex*>*>::const_iterator pos=m_mpFanoutVertices.begin();
     pos!=m_mpFanoutVertices.end(); ++pos)
   {
     delete pos->second;

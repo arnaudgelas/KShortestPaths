@@ -13,23 +13,21 @@
 #ifndef __BaseGraph_h
 #define __BaseGraph_h
 
-using namespace std;
-
 class BaseGraph
 {
 public: // members
 
-  const static double DISCONNECT; 
+  const static double DISCONNECT;
 
-  typedef set<BaseVertex*>::iterator VertexPtSetIterator;
-  typedef map<BaseVertex*, set<BaseVertex*>*>::iterator BaseVertexPt2SetMapIterator;
+  typedef std::set<BaseVertex*>::iterator VertexPtSetIterator;
+  typedef std::map<BaseVertex*, std::set<BaseVertex*>*>::iterator BaseVertexPt2SetMapIterator;
 
 protected: // members
 
-  map<BaseVertex*, set<BaseVertex*>*> m_mpFanoutVertices;
-  map<BaseVertex*, set<BaseVertex*>*> m_mpFaninVertices;
-  map<int, double> m_mpEdgeCodeWeight; 
-  vector<BaseVertex*> m_vtVertices;
+  std::map<BaseVertex*, std::set<BaseVertex*>*> m_mpFanoutVertices;
+  std::map<BaseVertex*, std::set<BaseVertex*>*> m_mpFaninVertices;
+  std::map<int, double> m_mpEdgeCodeWeight;
+  std::vector<BaseVertex*> m_vtVertices;
   int m_nEdgeNum;
   int m_nVertexNum;
 
@@ -54,16 +52,16 @@ protected: // methods
 
   int get_edge_code(const BaseVertex* start_vertex_pt, const BaseVertex* end_vertex_pt) const
   {
-    /// Note that the computation below works only if 
+    /// Note that the computation below works only if
     /// the result is smaller than the maximum of an integer!
     return start_vertex_pt->getID()*m_nVertexNum+end_vertex_pt->getID();
   }
 
-public: 
+public:
 
   virtual double get_edge_weight(const BaseVertex* start_vertex_pt, const BaseVertex* end_vertex_pt) const
   {
-    map<int, double>::const_iterator pos = 
+    std::map<int, double>::const_iterator pos =
       m_mpEdgeCodeWeight.find(get_edge_code(start_vertex_pt, end_vertex_pt));
 
     if (pos != m_mpEdgeCodeWeight.end())
@@ -74,12 +72,12 @@ public:
     return DISCONNECT;
   }
 
-  virtual set<BaseVertex*>* get_precedent_vertex_set(BaseVertex* vertex) 
+  virtual std::set<BaseVertex*>* get_precedent_vertex_set(BaseVertex* vertex)
   {
     return get_vertex_set_pt(vertex, m_mpFaninVertices);
   }
 
-  virtual set<BaseVertex*>* get_adjacent_vertex_set(BaseVertex* vertex) 
+  virtual std::set<BaseVertex*>* get_adjacent_vertex_set(BaseVertex* vertex)
   {
     return get_vertex_set_pt(vertex, m_mpFanoutVertices);
   }
@@ -92,22 +90,22 @@ public:
     return m_vtVertices.at(id);
   }
 
-  set<BaseVertex*>* get_vertex_set_pt(BaseVertex* vertex_, 
-    map<BaseVertex*, set<BaseVertex*>*>& vertex_container_index)
+  std::set<BaseVertex*>* get_vertex_set_pt(BaseVertex* vertex_,
+    std::map<BaseVertex*, std::set<BaseVertex*>*>& vertex_container_index)
   {
     BaseVertexPt2SetMapIterator pos = vertex_container_index.find(vertex_);
 
     if(pos == vertex_container_index.end())
     {
-      set<BaseVertex*>* vertex_set = new set<BaseVertex*>();
-      pair<BaseVertexPt2SetMapIterator,bool> ins_pos = 
+      std::set<BaseVertex*>* vertex_set = new std::set<BaseVertex*>();
+      std::pair<BaseVertexPt2SetMapIterator,bool> ins_pos =
         vertex_container_index.insert(make_pair(vertex_, vertex_set));
 
       pos = ins_pos.first;
     }
 
     return pos->second;
-  } 
+  }
 };
 
 #endif

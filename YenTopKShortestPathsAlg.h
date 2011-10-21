@@ -14,16 +14,21 @@
 #ifndef __YenTopKShortestPathsAlg_h
 #define __YenTopKShortestPathsAlg_h
 
+#include <vector>
+#include <map>
+#include <set>
 
-using namespace std;
+class Graph;
+class BasePath;
+template < class T > class WeightLess;
 
 class YenTopKShortestPathsAlg
 {
   Graph* m_pGraph;
 
-  vector<BasePath*> m_vResultList;
-  map<BasePath*, BaseVertex*> m_mpDerivationVertexIndex;
-  multiset<BasePath*, WeightLess<BasePath> > m_quPathCandidates;
+  std::vector<BasePath*> m_vResultList;
+  std::map<BasePath*, BaseVertex*> m_mpDerivationVertexIndex;
+  std::multiset<BasePath*, WeightLess<BasePath> > m_quPathCandidates;
 
   BaseVertex* m_pSourceVertex;
   BaseVertex* m_pTargetVertex;
@@ -56,7 +61,7 @@ public:
 
   BasePath* get_shortest_path(BaseVertex* pSource, BaseVertex* pTarget);
   void get_shortest_paths(BaseVertex* pSource, BaseVertex* pTarget, int top_k,
-    vector<BasePath*>&);
+    std::vector<BasePath*>&);
 };
 
 #endif
