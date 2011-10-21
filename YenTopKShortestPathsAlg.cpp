@@ -62,17 +62,17 @@ BasePath* YenTopKShortestPathsAlg::next()
   m_quPathCandidates.erase(m_quPathCandidates.begin());
   m_vResultList.push_back(cur_path);
 
-  int count = m_vResultList.size();
+  size_t count = m_vResultList.size();
 
   BaseVertex* cur_derivation_pt = m_mpDerivationVertexIndex.find(cur_path)->second;
   std::vector<BaseVertex*> sub_path_of_derivation_pt;
   cur_path->SubPath(sub_path_of_derivation_pt, cur_derivation_pt);
-  int sub_path_length = sub_path_of_derivation_pt.size();
+  size_t sub_path_length = sub_path_of_derivation_pt.size();
 
   //2. Remove the vertices and arcs in the graph
-  for (int i=0; i<count-1; ++i)
+  for (size_t ii=0; ii<count-1; ++ii)
   {
-    BasePath* cur_result_path = m_vResultList.at(i);
+    BasePath* cur_result_path = m_vResultList.at(ii);
     std::vector<BaseVertex*> cur_result_sub_path_of_derivation_pt;
 
     if (!cur_result_path->SubPath(cur_result_sub_path_of_derivation_pt, cur_derivation_pt)) continue;
@@ -80,7 +80,7 @@ BasePath* YenTopKShortestPathsAlg::next()
     if (sub_path_length != cur_result_sub_path_of_derivation_pt.size()) continue;
 
     bool is_equal = true;
-    for (int i=0; i<sub_path_length; ++i)
+    for (size_t i=0; i<sub_path_length; ++i)
     {
       if (sub_path_of_derivation_pt.at(i) != cur_result_sub_path_of_derivation_pt.at(i))
       {
@@ -150,7 +150,7 @@ BasePath* YenTopKShortestPathsAlg::next()
         }
       }
       //
-      for (int j=0; j<sub_path->length(); ++j)
+      for (size_t j=0; j<sub_path->length(); ++j)
       {
         pre_path_list.push_back(sub_path->GetVertex(j));
       }

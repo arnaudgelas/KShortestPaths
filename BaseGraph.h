@@ -90,7 +90,7 @@ public:
   //////////////////////////////////////////////////////////////////////////
   // Non-virtual methods
   //////////////////////////////////////////////////////////////////////////
-  BaseVertex* get_vertex_by_ID(int id) const
+  BaseVertex* get_vertex_by_ID(size_t id) const
   {
     return m_vtVertices.at(id);
   }
@@ -104,7 +104,7 @@ public:
     {
       std::set<BaseVertex*>* vertex_set = new std::set<BaseVertex*>();
       std::pair<BaseVertexPt2SetMapIterator,bool> ins_pos =
-        vertex_container_index.insert(make_pair(vertex_, vertex_set));
+        vertex_container_index.insert(std::make_pair(vertex_, vertex_set));
 
       pos = ins_pos.first;
     }

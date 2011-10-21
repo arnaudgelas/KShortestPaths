@@ -73,13 +73,13 @@ public:
 **************************************************************************/
 class BaseVertex
 {
-  int m_nID;
+  size_t m_nID;
   double m_dWeight;
 
 public:
 
-  int getID() const { return m_nID; }
-  void setID(int ID_) { m_nID = ID_; }
+  size_t getID() const { return m_nID; }
+  void setID(size_t ID_) { m_nID = ID_; }
 
   double Weight() const { return m_dWeight; }
   void Weight(double val) { m_dWeight = val; }

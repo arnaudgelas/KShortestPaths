@@ -67,11 +67,11 @@ void DijkstraShortestPathAlg::determine_shortest_paths( BaseVertex* source, Base
 
     if (cur_vertex_pt == end_vertex) break;
 
-    if(cur_vertex_pt->getID() == 31)
-    {
-      int i = 1;
-      i = 100;
-    }
+//    if(cur_vertex_pt->getID() == 31)
+//    {
+//      int i = 1;
+//      i = 100;
+//    }
     m_stDeterminedVertices.insert(cur_vertex_pt->getID());
 
     improve2vertex(cur_vertex_pt, is_source2sink);

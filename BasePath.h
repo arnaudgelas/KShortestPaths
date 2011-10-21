@@ -13,11 +13,15 @@
 #ifndef __BasePath_h
 #define __BasePath_h
 
+#include <vector>
+#include <iostream>
+#include "GraphElements.h"
+
 class BasePath
 {
 protected:
 
-  int m_nLength; 
+  size_t m_nLength;
   double m_dWeight;
   std::vector<BaseVertex*> m_vtVertexList;
 
@@ -33,17 +37,17 @@ public:
   double Weight() const { return m_dWeight; }
   void Weight(double val) { m_dWeight = val; }
 
-  int length() { return m_nLength; }
+  size_t length() const { return m_nLength; }
 
-  BaseVertex* GetVertex(int i)
+  BaseVertex* GetVertex(size_t i)
   {
     return m_vtVertexList.at(i);
   }
 
   bool SubPath(std::vector<BaseVertex*>& sub_path, BaseVertex* ending_vertex_pt)
   {
-    
-    for (std::vector<BaseVertex*>::const_iterator pos = m_vtVertexList.begin(); 
+
+    for (std::vector<BaseVertex*>::const_iterator pos = m_vtVertexList.begin();
       pos != m_vtVertexList.end(); ++pos)
     {
       if (*pos != ending_vertex_pt)
@@ -69,7 +73,7 @@ public:
       (*pos)->PrintOut(out_stream);
       out_stream << "->";
     }
-    out_stream << std::endl <<  "*********************************************" << std::endl; 
+    out_stream << std::endl <<  "*********************************************" << std::endl;
   }
 };
 #endif
