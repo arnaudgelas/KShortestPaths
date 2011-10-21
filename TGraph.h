@@ -8,7 +8,9 @@
 /// 
 /// $Id: TGraph.h 47 2010-06-07 06:45:09Z yan.qi.asu $
 ///////////////////////////////////////////////////////////////////////////////
-#pragma once
+
+#ifndef __TGraph_h
+#define __TGraph_h
 
 using namespace std;
 
@@ -148,3 +150,5 @@ public:
 
 template<typename T>
 const double TGraph<T>::DISCONNECT = (numeric_limits<double>::max)();
+
+#endif

@@ -10,7 +10,8 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 
-#pragma once
+#ifndef __Graph_h
+#define __Graph_h
 
 #include "BasePath.h"
 
@@ -114,3 +115,5 @@ private:
 	void _import_from_file(const std::string& file_name);
 
 };
+
+#endif

@@ -1,17 +1,19 @@
 ///////////////////////////////////////////////////////////////////////////////
 ///  YenTopKShortestPathsAlg.h
-///  The implementation of Yen's algorithm to get the top k shortest paths 
-///  connecting a pair of vertices in a graph. 
+///  The implementation of Yen's algorithm to get the top k shortest paths
+///  connecting a pair of vertices in a graph.
 ///
 ///  @remarks <TODO: insert remarks here>
 ///
 ///  @author Yan Qi @date 7/10/2010
-/// 
+///
 ///  $Id: YenTopKShortestPathsAlg.h 65 2010-09-08 06:48:36Z yan.qi.asu $
 ///
 ///////////////////////////////////////////////////////////////////////////////
 
-#pragma once
+#ifndef __YenTopKShortestPathsAlg_h
+#define __YenTopKShortestPathsAlg_h
+
 
 using namespace std;
 
@@ -49,10 +51,12 @@ public:
 	~YenTopKShortestPathsAlg(void){clear();}
 
 	void clear();
-	bool has_next();	
+	bool has_next();
 	BasePath* next();
 
 	BasePath* get_shortest_path(BaseVertex* pSource, BaseVertex* pTarget);
-	void get_shortest_paths(BaseVertex* pSource, BaseVertex* pTarget, int top_k, 
+	void get_shortest_paths(BaseVertex* pSource, BaseVertex* pTarget, int top_k,
 		vector<BasePath*>&);
 };
+
+#endif

@@ -10,7 +10,8 @@
 ///
 ///////////////////////////////////////////////////////////////////////////////
 
-#pragma once
+#ifndef __DynamicGraph_h
+#define __DynamicGraph_h
 
 #include "Graph.h"
 
@@ -83,3 +84,5 @@ public:
 	virtual void get_precedent_vertices(BaseVertex* vertex, set<BaseVertex*>& vertex_set);
 
 };
+
+#endif

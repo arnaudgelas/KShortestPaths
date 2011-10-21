@@ -10,7 +10,8 @@
 ///
 ///////////////////////////////////////////////////////////////////////////////
 
-#pragma once
+#ifndef __TPath_h
+#define __TPath_h
 
 template<typename T>
 class TPath
@@ -42,3 +43,4 @@ public:
 		out_stream << std::endl <<  "*********************************************" << std::endl;	
 	}
 };
+#endif

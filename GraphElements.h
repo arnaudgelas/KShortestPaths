@@ -9,7 +9,8 @@
 ///  $Id: GraphElements.h 65 2010-09-08 06:48:36Z yan.qi.asu $
 ///////////////////////////////////////////////////////////////////////////////
 
-#pragma once
+#ifndef __GraphElements_h
+#define __GraphElements_h
 
 #include <string>
 #include <iostream>
@@ -88,4 +89,4 @@ public:
 		out_stream << m_nID;
 	}
 };
-
+#endif

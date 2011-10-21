@@ -10,7 +10,8 @@
 ///
 ///////////////////////////////////////////////////////////////////////////////
 
-#pragma once
+#ifndef __BasePath_h
+#define __BasePath_h
 
 class BasePath
 {
@@ -71,3 +72,4 @@ public:
  		out_stream << std::endl <<  "*********************************************" << std::endl;	
  	}
 };
+#endif

@@ -10,7 +10,8 @@
 ///
 ///////////////////////////////////////////////////////////////////////////////
 
-#pragma once
+#ifndef __BaseGraph_h
+#define __BaseGraph_h
 
 using namespace std;
 
@@ -108,3 +109,5 @@ public:
 		return pos->second;
 	}	
 };
+
+#endif

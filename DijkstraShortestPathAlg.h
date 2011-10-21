@@ -1,17 +1,18 @@
 ///////////////////////////////////////////////////////////////////////////////
 ///  DijkstraShortestPathAlg.h
-///  The implementation of Dijkstra algorithm to get the shortest path of 
-///  a pair of vertices in a graph. 
+///  The implementation of Dijkstra algorithm to get the shortest path of
+///  a pair of vertices in a graph.
 ///
 ///  @remarks <TODO: insert remarks here>
 ///
 ///  @author Yan Qi @date 5/30/2010
-/// 
+///
 ///  $Id: DijkstraShortestPathAlg.h 65 2010-09-08 06:48:36Z yan.qi.asu $
 ///
 ///////////////////////////////////////////////////////////////////////////////
 
-#pragma once
+#ifndef __DijkstraShortestPathAlg_h
+#define __DijkstraShortestPathAlg_h
 
 using namespace std;
 
@@ -21,13 +22,13 @@ private: // members
 
 	Graph* m_pDirectGraph;
 
-	std::map<BaseVertex*, double> m_mpStartDistanceIndex; 
-	std::map<BaseVertex*, BaseVertex*> m_mpPredecessorVertex; 
+	std::map<BaseVertex*, double> m_mpStartDistanceIndex;
+	std::map<BaseVertex*, BaseVertex*> m_mpPredecessorVertex;
 
 	std::set<int> m_stDeterminedVertices;
-	
+
 	std::multiset<BaseVertex*, WeightLess<BaseVertex> > m_quCandidateVertices;
-	
+
 public:
 	DijkstraShortestPathAlg(Graph* pGraph):m_pDirectGraph(pGraph){}
 	~DijkstraShortestPathAlg(void){clear();}
@@ -67,3 +68,5 @@ protected:
 	void improve2vertex(BaseVertex* cur_vertex_pt, bool is_source2sink);
 
 };
+
+#endif
