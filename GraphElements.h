@@ -12,7 +12,7 @@
 #pragma once
 
 #include <string>
-
+#include <iostream>
 
 template<class T>
 class WeightGreater
