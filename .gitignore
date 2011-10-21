@@ -1,2 +1,9 @@
 .svn/*
 */.svn/*
+*~
+*.orig
+*.bak
+CMakeLists.txt.user
+build/
+BUILD/
+Build/
