@@ -21,7 +21,7 @@ using namespace std;
 
 void testDijkstraGraph()
 {
-	Graph* my_graph_pt = new Graph("data/test_15");
+	Graph* my_graph_pt = new Graph("@KShortestPaths_SOURCE_DIR@/data/test_15");
 	DijkstraShortestPathAlg shortest_path_alg(my_graph_pt);
 	BasePath* result = 
 		shortest_path_alg.get_shortest_path(
@@ -32,7 +32,7 @@ void testDijkstraGraph()
 void testYenAlg()
 {
 	//Graph my_graph("data/test_6_2");
-	Graph my_graph("data/test_50");
+	Graph my_graph("@KShortestPaths_SOURCE_DIR@/data/test_50");
 	
 	YenTopKShortestPathsAlg yenAlg(my_graph, my_graph.get_vertex(0), 
 		my_graph.get_vertex(5));

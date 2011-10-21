@@ -65,6 +65,7 @@ Graph::~Graph(void)
 ///////////////////////////////////////////////////////////////////////////////
 void Graph::_import_from_file( const string& input_file_name )
 {
+  cout << input_file_name << endl;
 	const char* file_name = input_file_name.c_str();
 
 	//1. Check the validity of the file
