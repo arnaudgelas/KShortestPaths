@@ -29,20 +29,40 @@ void testDijkstraGraph()
 	result->PrintOut(cout);
 }
 
-void testYenAlg()
+void testYenAlg(int k)
 {
 	//Graph my_graph("data/test_6_2");
 	Graph my_graph("@KShortestPaths_SOURCE_DIR@/data/test_50");
-	
+
+  int i=0;
+
+  if( k <= 0 )
+  {
 	YenTopKShortestPathsAlg yenAlg(my_graph, my_graph.get_vertex(0), 
 		my_graph.get_vertex(5));
 
-	int i=0;
-	while(yenAlg.has_next())
-	{
-		++i;
-		yenAlg.next()->PrintOut(cout);
-	}
+	  while(yenAlg.has_next())
+	  {
+		  ++i;
+  		yenAlg.next()->PrintOut(cout);
+	  }
+  }
+  else
+  {
+  vector< BasePath* > paths;
+
+  YenTopKShortestPathsAlg yenAlg(my_graph );
+  yenAlg.get_shortest_paths( my_graph.get_vertex(0), my_graph.get_vertex(5), k, paths );
+
+  vector< BasePath* >::const_iterator it = paths.begin();
+
+  while( it != paths.end() )
+	  {
+    (*it)->PrintOut(cout);
+		++it;
+	  }
+
+  }
 
 // 	System.out.println("Result # :"+i);
 // 	System.out.println("Candidate # :"+yenAlg.get_cadidate_size());
@@ -50,10 +70,17 @@ void testYenAlg()
 
 }
 
-int main(...)
+int main( int argc, char* argv[] )
 {
+  int kk = 0;
+  if( argc == 2 )
+  {
+    kk = atoi( argv[1] );
+  }
 	cout << "Welcome to the real world!" << endl;
 
 	/*testDijkstraGraph();*/
-	testYenAlg();
+	testYenAlg( kk );
+
+  return EXIT_SUCCESS;
 }
