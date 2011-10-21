@@ -42,7 +42,7 @@ double DynamicGraph::get_edge_weight(const BaseVertex* source, const BaseVertex*
 	{
 		return BaseGraph::DISCONNECT;
 	}
-	
+
 	return Graph::get_edge_weight(source, sink);
 }
 
@@ -52,7 +52,7 @@ void DynamicGraph::get_adjacent_vertices(BaseVertex* vertex, set<BaseVertex*>& v
 
 	if (m_stRemovedVertexIds.find(starting_vt_id) == m_stRemovedVertexIds.end())
 	{
-		set<BaseVertex*>* vertex_pt_set = get_adjacent_vertex_set(vertex);
+		set<BaseVertex*>* vertex_pt_set = this->get_adjacent_vertex_set(vertex);
 		for(set<BaseVertex*>::const_iterator pos=(*vertex_pt_set).begin();
 			pos != (*vertex_pt_set).end(); ++pos)
 		{
@@ -74,7 +74,7 @@ void DynamicGraph::get_precedent_vertices( BaseVertex* vertex, set<BaseVertex*>&
 	{
 		int ending_vt_id = vertex->getID();
 		set<BaseVertex*>* pre_vertex_set = Graph::get_precedent_vertex_set(vertex);
-		for(set<BaseVertex*>::const_iterator pos=(*pre_vertex_set).begin(); 
+		for(set<BaseVertex*>::const_iterator pos=(*pre_vertex_set).begin();
 			pos != (*pre_vertex_set).end(); ++pos)
 		{
 			int starting_vt_id = (*pos)->getID();

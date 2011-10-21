@@ -6,10 +6,10 @@ add_executable( kshortestpath
   MainP.cpp
   BaseGraph.cpp
   BasePath.cpp
-  TGraph.cpp
+#  TGraph.cpp
   DijkstraShortestPathAlg.cpp
-  TPath.cpp
-  DynamicGraph.cpp
+#  TPath.cpp
+#  DynamicGraph.cpp
   YenTopKShortestPathsAlg.cpp
   Graph.cpp
 )

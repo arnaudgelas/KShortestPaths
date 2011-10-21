@@ -12,6 +12,8 @@
 
 #pragma once
 
+#include "Graph.h"
+
 using namespace std;
 
 class DynamicGraph : public Graph
@@ -79,5 +81,5 @@ public:
 	virtual void get_adjacent_vertices(BaseVertex* vertex, set<BaseVertex*>& vertex_set);
 
 	virtual void get_precedent_vertices(BaseVertex* vertex, set<BaseVertex*>& vertex_set);
-	
+
 };
