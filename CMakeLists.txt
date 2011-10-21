@@ -41,4 +41,11 @@ add_test( NAME kshortestpath50
   COMMAND ${KShortestPaths_BINARY_DIR}/kshortestpath 50
 )
 
+add_test( NAME kshortestpath100
+  COMMAND ${KShortestPaths_BINARY_DIR}/kshortestpath 100
+)
+
+add_test( NAME kshortestpath1000
+  COMMAND ${KShortestPaths_BINARY_DIR}/kshortestpath 1000
+)
 
