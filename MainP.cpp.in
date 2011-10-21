@@ -21,52 +21,51 @@ using namespace std;
 
 void testDijkstraGraph()
 {
-	Graph* my_graph_pt = new Graph("@KShortestPaths_SOURCE_DIR@/data/test_15");
-	DijkstraShortestPathAlg shortest_path_alg(my_graph_pt);
-	BasePath* result = 
-		shortest_path_alg.get_shortest_path(
-			my_graph_pt->get_vertex(0), my_graph_pt->get_vertex(5));
-	result->PrintOut(cout);
+  Graph* my_graph_pt = new Graph("@KShortestPaths_SOURCE_DIR@/data/test_15");
+  DijkstraShortestPathAlg shortest_path_alg(my_graph_pt);
+  BasePath* result =
+    shortest_path_alg.get_shortest_path(
+      my_graph_pt->get_vertex(0), my_graph_pt->get_vertex(5));
+  result->PrintOut(cout);
 }
 
 void testYenAlg(int k)
 {
-	//Graph my_graph("data/test_6_2");
-	Graph my_graph("@KShortestPaths_SOURCE_DIR@/data/test_50");
+  //Graph my_graph("data/test_6_2");
+  Graph my_graph("@KShortestPaths_SOURCE_DIR@/data/test_50");
+
+  YenTopKShortestPathsAlg yenAlg(my_graph, my_graph.get_vertex(0),
+    my_graph.get_vertex(5));
 
   int i=0;
 
   if( k <= 0 )
   {
-	YenTopKShortestPathsAlg yenAlg(my_graph, my_graph.get_vertex(0), 
-		my_graph.get_vertex(5));
-
-	  while(yenAlg.has_next())
-	  {
-		  ++i;
-  		yenAlg.next()->PrintOut(cout);
-	  }
+    while(yenAlg.has_next())
+    {
+      ++i;
+      yenAlg.next()->PrintOut(cout);
+    }
   }
   else
   {
   vector< BasePath* > paths;
 
-  YenTopKShortestPathsAlg yenAlg(my_graph );
   yenAlg.get_shortest_paths( my_graph.get_vertex(0), my_graph.get_vertex(5), k, paths );
 
   vector< BasePath* >::const_iterator it = paths.begin();
 
   while( it != paths.end() )
-	  {
+    {
     (*it)->PrintOut(cout);
-		++it;
-	  }
+    ++it;
+    }
 
   }
 
-// 	System.out.println("Result # :"+i);
-// 	System.out.println("Candidate # :"+yenAlg.get_cadidate_size());
-// 	System.out.println("All generated : "+yenAlg.get_generated_path_size());
+//  System.out.println("Result # :"+i);
+//  System.out.println("Candidate # :"+yenAlg.get_cadidate_size());
+//  System.out.println("All generated : "+yenAlg.get_generated_path_size());
 
 }
 
@@ -77,10 +76,10 @@ int main( int argc, char* argv[] )
   {
     kk = atoi( argv[1] );
   }
-	cout << "Welcome to the real world!" << endl;
+  cout << "Welcome to the real world!" << endl;
 
-	/*testDijkstraGraph();*/
-	testYenAlg( kk );
+  /*testDijkstraGraph();*/
+  testYenAlg( kk );
 
   return EXIT_SUCCESS;
 }

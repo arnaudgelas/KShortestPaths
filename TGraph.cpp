@@ -24,14 +24,14 @@ using namespace std;
 // template<typename T>
 // void TGraph<T>::clear()
 // {
-// 	m_nEdgeNum = 0;
-// 	m_nVertexNum = 0;
-// 	m_mpFanoutVertices.clear();
-// 	m_mpFaninVertices.clear();
-// 	m_mpEdgeWeight.clear();
-// 	m_stVertices.clear();
+//  m_nEdgeNum = 0;
+//  m_nVertexNum = 0;
+//  m_mpFanoutVertices.clear();
+//  m_mpFaninVertices.clear();
+//  m_mpEdgeWeight.clear();
+//  m_stVertices.clear();
 // 
-// 	//clear the list
-// 	for_each(m_vtVertices.begin(), m_vtVertices.end(), DeleteFunc<GIntVertex>());
-// 	m_vtVertices.clear();
+//  //clear the list
+//  for_each(m_vtVertices.begin(), m_vtVertices.end(), DeleteFunc<GIntVertex>());
+//  m_vtVertices.clear();
 // }

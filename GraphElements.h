@@ -19,32 +19,32 @@ template<class T>
 class WeightGreater
 {
 public:
-	// Determine priority.
-	bool operator()(const T& a, const T& b) const
-	{
-		return a.Weight() > b.Weight();
-	}
+  // Determine priority.
+  bool operator()(const T& a, const T& b) const
+  {
+    return a.Weight() > b.Weight();
+  }
 
-	bool operator()(const T* a, const T* b) const
-	{
-		return a->Weight() > b->Weight();
-	}
+  bool operator()(const T* a, const T* b) const
+  {
+    return a->Weight() > b->Weight();
+  }
 };
 
 template<class T>
 class WeightLess
 {
 public:
-	// Determine priority.
-	bool operator()(const T& a, const T& b) const
-	{
-		return a.Weight() < b.Weight();
-	}
+  // Determine priority.
+  bool operator()(const T& a, const T& b) const
+  {
+    return a.Weight() < b.Weight();
+  }
 
-	bool operator()(const T* a, const T* b) const
-	{
-		return a->Weight() < b->Weight();
-	}
+  bool operator()(const T* a, const T* b) const
+  {
+    return a->Weight() < b->Weight();
+  }
 };
 
 //////////////////////////////////////////////////////////////////////////
@@ -54,10 +54,10 @@ template<class T>
 class DeleteFunc
 {
 public:
-	void operator()(const T* it) const
-	{
-		delete it;
-	}
+  void operator()(const T* it) const
+  {
+    delete it;
+  }
 };
 
 
@@ -73,20 +73,20 @@ public:
 **************************************************************************/
 class BaseVertex
 {
-	int m_nID;
-	double m_dWeight;
+  int m_nID;
+  double m_dWeight;
 
 public:
 
-	int getID() const { return m_nID; }
-	void setID(int ID_) { m_nID = ID_; }
+  int getID() const { return m_nID; }
+  void setID(int ID_) { m_nID = ID_; }
 
-	double Weight() const { return m_dWeight; }
-	void Weight(double val) { m_dWeight = val; }
+  double Weight() const { return m_dWeight; }
+  void Weight(double val) { m_dWeight = val; }
 
-	void PrintOut(std::ostream& out_stream)
-	{
-		out_stream << m_nID;
-	}
+  void PrintOut(std::ostream& out_stream)
+  {
+    out_stream << m_nID;
+  }
 };
 #endif
