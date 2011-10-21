@@ -86,7 +86,6 @@ void Graph::_import_from_file( const std::string& input_file_name )
   ///   These values are separated by 'white space'.
   int start_vertex, end_vertex;
   double edge_weight;
-  int vertex_id = 0;
 
   while(ifs >> start_vertex)
   {
@@ -131,7 +130,6 @@ BaseVertex* Graph::get_vertex( int node_id )
     const std::map<int, BaseVertex*>::iterator pos = m_mpVertexIndex.find(node_id);
     if (pos == m_mpVertexIndex.end())
     {
-      int vertex_id = m_vtVertices.size();
       vertex_pt = new BaseVertex();
       vertex_pt->setID(node_id);
       m_mpVertexIndex[node_id] = vertex_pt;
