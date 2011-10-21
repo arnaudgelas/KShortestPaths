@@ -13,10 +13,32 @@ add_executable( kshortestpath
   ${KShortestPaths_BINARY_DIR}/MainP.cpp
   BaseGraph.cpp
   BasePath.cpp
-#  TGraph.cpp
   DijkstraShortestPathAlg.cpp
-#  TPath.cpp
-#  DynamicGraph.cpp
   YenTopKShortestPathsAlg.cpp
   Graph.cpp
+
+#  TGraph.cpp
+#  TPath.cpp
+#  DynamicGraph.cpp
+
 )
+
+include( CTest )
+
+add_test( NAME kshortestpath1
+  COMMAND ${KShortestPaths_BINARY_DIR}/kshortestpath 1
+)
+
+add_test( NAME kshortestpath2
+  COMMAND ${KShortestPaths_BINARY_DIR}/kshortestpath 2
+)
+
+add_test( NAME kshortestpath10
+  COMMAND ${KShortestPaths_BINARY_DIR}/kshortestpath 10
+)
+
+add_test( NAME kshortestpath50
+  COMMAND ${KShortestPaths_BINARY_DIR}/kshortestpath 50
+)
+
+
